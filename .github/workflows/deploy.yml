@@ -26,6 +26,18 @@ jobs:
       contents: read
     steps:
       - name: Trigger Render Deploy
-        run: curl -fsS -X POST "$RENDER_DEPLOY_HOOK"
+        run: |
+          # تنظيف الرابط من أي مسافات أو أسطر مخفية
+          URL=$(printf '%s' "$RENDER_DEPLOY_HOOK" | tr -d '[:space:]')
+
+          # التحقق من صحة الرابط قبل الإرسال
+          if [[ ! "$URL" =~ ^https://api\.render\.com/deploy/srv- ]]; then
+            echo "::error::RENDER_DEPLOY_HOOK غير صحيح أو يحتوي على أحرف مخفية!"
+            echo "طول الرابط الحالي: ${#URL}"
+            exit 1
+          fi
+
+          echo "✅ الرابط نظيف (الطول: ${#URL} حرف)"
+          curl -fsS -X POST "$URL"
         env:
           RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
