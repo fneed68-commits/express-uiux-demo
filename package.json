@@ -1,0 +1,16 @@
+{
+  "name": "express-fullstack-demo",
+  "version": "1.0.0",
+  "description": "A complete Express.js full-stack demo with professional UI/UX",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "lint": "echo \"No linter configured. Skipping.\"",
+    "test": "echo \"No tests yet. Skipping.\"",
+    "build": "echo \"No build step needed.\""
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Express Full‑Stack Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>Express UI/UX Demo</h1>
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark/light theme">🌙</button>
+  </header>
+
+  <main class="main">
+    <section class="add-section">
+      <h2>Add New Item</h2>
+      <form id="addForm" class="add-form">
+        <input type="text" id="title" placeholder="Title" required />
+        <textarea id="description" placeholder="Description (optional)"></textarea>
+        <button type="submit">Add Item</button>
+      </form>
+    </section>
+
+    <section class="list-section">
+      <h2>Items</h2>
+      <div class="filter-bar">
+        <select id="filterSelect">
+          <option value="all">All</option>
+          <option value="pending">Pending</option>
+          <option value="completed">Completed</option>
+        </select>
+      </div>
+      <ul id="itemsList" class="items-list"></ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Express Full‑Stack Demo</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
